@@ -1,4 +1,4 @@
-<?php           //Checkout process //Firstly I will grab the grand total amount from the cart table and I will also grab the products and quantity of the product.
+<?php
     session_start();
     require 'config.php';
 
@@ -6,7 +6,7 @@
     $allItems = '';
     $items = array();
 
-    $sql = "SELECT CONCAT(product_name, '(',qty,')') AS ItemQty, total_price FROM cart";            //CONCAT is using to combine product_name and qty.  //For eg Redmi(2),Iphone(4)
+    $sql = "SELECT CONCAT(product_name, '(',qty,')') AS ItemQty, total_price FROM cart";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -14,11 +14,8 @@
         $grand_total += $row['total_price'];
         $items[] = $row['ItemQty'];
     }
-    //echo $grand_total;    
-    //print_r($items);
 
-    $allItems = implode(", ", $items);             //implode is using to make the array in to a single string
-    //echo $allItems;
+    $allItems = implode(", ", $items);
 
 ?>
 
@@ -69,7 +66,7 @@
             <div class="col-lg-6 px-4 pb-4" id="order">
                 <h4 class="text-center text_info p-2">Payment</h4>
                 <div class="jumbotron p-3 mb-2 text-center">
-                    <h6 class="lead"><b>Product(s) : </b><?php echo $allItems; ?></h6>      <!-- Now display using php echo -->
+                    <h6 class="lead"><b>Product(s) : </b><?php echo $allItems; ?></h6>
                     <h6 class="lead"><b>Delivery Charge : </b>Free</h6>
                     <h5><b>Total Amount Payable : </b><?php echo number_format($grand_total,2); ?></h5>
                     <form action="" method ="post" id="placeOrder">
@@ -119,13 +116,12 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            //To send user info and order details into orders table and display back those details to the checkout page. For this we use ajax to send a request to the server.
             $("#placeOrder").submit(function(e){
                 e.preventDefault();
                 $.ajax({
                     url: 'action.php',
                     method: 'post',
-                    data: $('form').serialize()+"&action=order",            //The serialize( ) method serializes a set of input elements into a string of data. Also Iam concatenating(joining) extra string there ie., "&action=order"
+                    data: $('form').serialize()+"&action=order",
                     success: function(response){
                         $("#order").html(response);                        
                     }
@@ -133,7 +129,7 @@
             });
 
             load_cart_item_number();
-            //To show number of cart items(showing near cart symbol in top of the home page) when clicking Add to cart. For this we need to use ajax to send a request to the server.
+
             function load_cart_item_number(){
                 $.ajax({
                     url: 'action.php',

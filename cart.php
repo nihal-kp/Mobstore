@@ -72,7 +72,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php                       //Now to display all the products that are added to cart table
+                            <?php
                                 require 'config.php';
                                 $stmt = $conn->prepare("SELECT * FROM cart");
                                 $stmt->execute();
@@ -82,11 +82,11 @@
                             ?>
                             <tr>
                                 <td><?php echo $row['id']; ?></td>
-                                <input type="hidden" class="pid" value="<?php echo $row['id']; ?>">            <!-- Extra fittings for using in ajax method -->
+                                <input type="hidden" class="pid" value="<?php echo $row['id']; ?>">  
                                 <td><img src="<?php echo $row['product_image']; ?>" width="50"></td>
                                 <td><?php echo $row['product_name']; ?></td>
                                 <td>₹ <?php echo number_format($row['product_price'],2); ?></td>
-                                <input type="hidden" class="pprice" value="<?php echo $row['product_price']; ?>">          <!-- Extra fittings for using in ajax method -->
+                                <input type="hidden" class="pprice" value="<?php echo $row['product_price']; ?>">
                                 <td><input type="number" class="form-control itemQty" value="<?php echo $row['qty']; ?>" style="width:75px;"></td>
                                 <td>₹ <?php echo number_format($row['total_price'],2); ?></td>
                                 <td><a href="action.php?remove=<?php echo $row['id']; ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fa fa-trash"></i></td>
@@ -120,17 +120,15 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            //When user change the quantity by increasing or decreasing the number of input field, then there will update the total price of an item and update in cart table also. For this we need to use ajax to send a request to the server. 
-            $(".itemQty").on('change',function(){           //On item change function I will create variables to store the value of id, product_price and quantity.
-                var $el = $(this).closest('tr');            //id, product_price, qty are in while loop. So we have to use this type closest method to grab the value of id, product_price and quantity. Here 'tr' is using because id, product_price, qty are in tr tag.
+            $(".itemQty").on('change',function(){ 
+                var $el = $(this).closest('tr'); 
 
-                var pid = $el.find(".pid").val();           //to grab the value of id from input field and assigning to var pid
-                var pprice = $el.find(".pprice").val();     // "    "
+                var pid = $el.find(".pid").val();
+                var pprice = $el.find(".pprice").val();
                 var qty = $el.find(".itemQty").val();
 
-                location.reload(true);                      //For automatic reload (when user increase or decrease the quantity field).
+                location.reload(true);
 
-                //Now here I write ajax code to send the id, total_price and no. of qty to the server. From the server I will update the cart with total_price and quantity.
                 $.ajax({
                     url: 'action.php',
                     method: 'post',
@@ -144,7 +142,6 @@
             
             load_cart_item_number();
             
-            //To show number of cart items(showing near cart symbol in top of the home page) when clicking Add to cart. For this we need to use ajax to send a request to the server.
             function load_cart_item_number(){
                 $.ajax({
                     url: 'action.php',
