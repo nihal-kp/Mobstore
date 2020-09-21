@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-<!-- Latest compiled and minified CSS -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -73,19 +73,19 @@
 
         if(isset($_POST['signup']))
         {
-        $name=$_POST['name'];
-        $email=$_POST['email'];
-        $phone=$_POST['phone'];
-        $address=$_POST['address'];
-        $password=$_POST['psw'];
+            $name=$_POST['name'];
+            $email=$_POST['email'];
+            $phone=$_POST['phone'];
+            $address=$_POST['address'];
+            $password=$_POST['psw'];
 
-        $insert="INSERT INTO customer (name,email,phone,address,password) VALUES ('$name','$email','$phone','$address','$password')";
+            $insert="INSERT INTO customer (name,email,phone,address,password) VALUES ('$name','$email','$phone','$address','$password')";
 
-        mysqli_query($conn,$insert);
-        echo '<script type="text/javascript">'; 
-        echo 'alert("Registered Successfully");'; 
-        echo 'window.location.href = "login.php";';
-        echo '</script>';
+            mysqli_query($conn,$insert);
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Registered Successfully");'; 
+            echo 'window.location.href = "login.php";';
+            echo '</script>';
         }     
     ?>        
 </body>
