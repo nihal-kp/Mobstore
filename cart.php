@@ -37,6 +37,9 @@
         <li class="nav-item">
             <a class="nav-link active" href="cart.php"><i class="fa fa-shopping-cart"> <span id="cart-item" class="badge badge-danger"></span></i></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+        </li>
         </ul>
     </div>
     </nav>
@@ -86,7 +89,7 @@
                                 <input type="hidden" class="pprice" value="<?php echo $row['product_price']; ?>">          <!-- Extra fittings for using in ajax method -->
                                 <td><input type="number" class="form-control itemQty" value="<?php echo $row['qty']; ?>" style="width:75px;"></td>
                                 <td>₹ <?php echo number_format($row['total_price'],2); ?></td>
-                                <td><a href="action.php?remove=<?php echo $row['id']; ?>" class="text danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fa fa-trash"></i></td>
+                                <td><a href="action.php?remove=<?php echo $row['id']; ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');"><i class="fa fa-trash"></i></td>
                             </tr>
                             <?php
                                 $grand_total += $row['total_price'];

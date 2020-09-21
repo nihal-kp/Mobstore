@@ -1,4 +1,5 @@
 <?php           //Checkout process //Firstly I will grab the grand total amount from the cart table and I will also grab the products and quantity of the product.
+    session_start();
     require 'config.php';
 
     $grand_total = 0;
@@ -56,6 +57,9 @@
         <li class="nav-item">
             <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"> <span id="cart-item" class="badge badge-danger"></span></i></a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
+        </li>
         </ul>
     </div>
     </nav>
@@ -63,7 +67,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 px-4 pb-4" id="order">
-                <h4 class="text-center text_info p-2">Complete your order!</h4>
+                <h4 class="text-center text_info p-2">Payment</h4>
                 <div class="jumbotron p-3 mb-2 text-center">
                     <h6 class="lead"><b>Product(s) : </b><?php echo $allItems; ?></h6>      <!-- Now display using php echo -->
                     <h6 class="lead"><b>Delivery Charge : </b>Free</h6>
@@ -71,18 +75,20 @@
                     <form action="" method ="post" id="placeOrder">
                         <input type="hidden" name="products" value="<?php echo $allItems; ?>">
                         <input type="hidden" name="grand_total" value="<?php echo $grand_total; ?>">
-                        <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Enter Name" required>  
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>  
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" class="form-control" placeholder="Enter Phone" required>  
-                        </div>
-                        <div class="form-group">
-                            <textarea name="address" class="form-control" rows="3" cols="10" placeholder="Enter Delivery Address Here..."></textarea>
-                        </div>
+                        
+                        <?php
+                        $ss=$_SESSION['ss'];
+                        $sel="select * from customer where ID='$ss'";
+                        $res = mysqli_query($conn,$sel);  
+                            
+                        while($arr = mysqli_fetch_array($res))
+                        {
+                        ?>
+                        <input type="hidden" name="name" value="<?php echo $arr[1]; ?>">
+                        <input type="hidden" name="email" value="<?php echo $arr[2]; ?>">
+                        <input type="hidden" name="phone" value="<?php echo $arr[3]; ?>">
+                        <input type="hidden" name="address" value="<?php echo $arr[4]; ?>">
+                        <?php } ?>
                         <h6 class="text-center lead">Select Payment Mode</h6>
                         <div class="form-group">
                             <select name="pmode" class="form-control">

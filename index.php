@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Products</a>
+            <a class="nav-link active" href="index.php">Products</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Categories</a>
@@ -32,6 +32,9 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"> <span id="cart-item" class="badge badge-danger"></span></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Login</a>
         </li>
         </ul>
     </div>
