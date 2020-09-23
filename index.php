@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Shopping Cart</title>
+    <title>MobStore</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="index.php"> <i class="fa fa-mobile-phone"></i>&nbsp;&nbsp;Mobile Store</a>
+    <a class="navbar-brand" href="index.php"> <i class="fa fa-mobile-phone"></i>&nbsp;&nbsp;Mobstore</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -52,7 +52,7 @@
             ?>
             <div class="col-sm-6 col-md-4 col-lg-3 mb-2">
                 <div class="card-deck">
-                    <div class="card p-2 border-secondary mb-2">
+                    <div class="card px-auto py-2 border-secondary mb-2">
                         <img src="<?php echo $row['product_image']; ?>" class="card-img-top" height="250">
                         <div class="card-body p-1">
                             <h4 class="card-title text-center text-info"> <?php echo $row['product_name']; ?> </h4>
