@@ -40,7 +40,7 @@
     </div>
     </nav>
     <div class= "container">
-        <div class="col-6 mx-auto mt-5">
+        <div class="col-lg-6 col-md-8 col-10 mx-auto mt-5">
             <div class="">
                 <h3 class="text-center">Create New Account</h3>
                 <form action="" method ="post">
@@ -65,6 +65,11 @@
                 </form>
             </div>
                 <p>Already a member? <a href="signup.php"><b>Log In</b></a></p>
+        </div>
+        <div class="col-lg-5 col-md-9 col-12 pt-lg-4 pt-md-3 pt-3 mx-auto">
+            <p class="text-center"> 
+                © 2020 Mobstore. All Rights Reserved | Designed by <a href="#" target="_blank">Dot KP</a>
+            </p>
         </div>
     </div>
 

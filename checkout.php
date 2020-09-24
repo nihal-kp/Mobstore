@@ -102,6 +102,13 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-9 col-12 pt-lg-4 pt-md-3 pt-3 mx-auto">
+                <p class="text-center"> 
+                    © 2020 Mobstore. All Rights Reserved | Designed by <a href="#" target="_blank">Dot KP</a>
+                </p>
+            </div>
+        </div>
     </div>
 
     <!-- jQuery library -->
