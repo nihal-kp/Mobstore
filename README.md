@@ -1,2 +1,2 @@
 # Mobstore
-Ecommerce Shopping Website for latest trending smartphones.
+Ecommerce shopping website for latest trending smartphones.
