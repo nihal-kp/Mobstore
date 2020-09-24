@@ -1,3 +1,2 @@
-# mobile_store
-# Ecommerce Shopping Website
-https://nihal-kp.github.io/mobile_store/
+# Mobstore
+Ecommerce Shopping Website for latest trending smartphones.
